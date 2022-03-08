@@ -69,7 +69,7 @@ footer p {
   margin: 10% auto;
 }
 
-@media (min-width:800px) {
+@media (min-width:480px) {
   body {
     heigt: auto;
   }
@@ -92,7 +92,7 @@ footer p {
 }
 }
 
-@media (max-width: 800px) and (orientation: landscape) {
+@media (max-width: 480px) and (orientation: landscape) {
 
   .level-title {
     width: 90%;
