@@ -1,0 +1,113 @@
+body {
+  height: 95vh;
+  text-align: center;
+  background-color: #011F3F;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.level-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  margin:  5%;
+  color: white;
+  line-height: 1.7;
+  height: 18vh;
+}
+
+.container {
+  display: block;
+  width: 50%;
+  margin: auto;
+
+}
+
+.btn {
+  margin: 4%;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+
+footer {
+  text-align: center;
+  color: white;
+}
+
+footer p {
+  margin: 10% auto;
+}
+
+@media (min-width:800px) {
+  body {
+    heigt: auto;
+  }
+  .level-title {
+    width: 92%;
+    height: 15vh;
+    font-size: 1.5rem;
+    margin:  0.5em auto;
+    color: white;
+    line-height: 1;
+  }
+  .btn {
+    --size: 100vmin;
+    width: calc(var(--size)/3.5);
+    height: calc(var(--size)/3.5);
+  }
+  footer p {
+    margin: 0;
+  }
+}
+}
+
+@media (max-width: 800px) and (orientation: landscape) {
+
+  .level-title {
+    width: 90%;
+    height: 20vh;
+    font-size: 1rem;
+    margin:  0.5em auto;
+    color: white;
+    line-height: 1;
+
+  }
+  .btn {
+    display: inline-block;
+    --size: 75vmin;
+    width: calc(var(--size)/3);
+    height: calc(var(--size)/3);
+  }
+  footer p {
+    margin: 0;
+  }
+}
