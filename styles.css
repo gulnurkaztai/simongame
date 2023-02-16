@@ -98,7 +98,7 @@ footer p {
 }
 }
 
-@media (max-width: 480px) and (orientation: landscape) {
+@media (max-width: 480px){
 
   .level-title {
     width: 90%;
