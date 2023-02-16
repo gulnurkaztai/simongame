@@ -83,3 +83,16 @@ function startOver() {
   gamePattern = [];
   started = false;
 }
+
+	// Touch?
+  if (browser.mobile) {
+
+    // Turn on touch mode.
+      $body.addClass('is-touch');
+
+    // Height fix (mostly for iOS).
+      window.setTimeout(function() {
+        $window.scrollTop($window.scrollTop() + 1);
+      }, 0);
+
+  }
