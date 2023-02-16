@@ -84,11 +84,18 @@ function startOver() {
   started = false;
 }
 
+function mobile(e){
+  e.target.value = e.target.value.replace(/[^\d]/g,'');
+  return false;
+}
+
+
 	// Touch?
   if (browser.mobile) {
 
     // Turn on touch mode.
       $body.addClass('is-touch');
+      mobile();
 
     // Height fix (mostly for iOS).
       window.setTimeout(function() {
