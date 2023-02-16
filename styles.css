@@ -97,7 +97,7 @@ footer p {
 }
 }
 
-@media (max-width: 480px){
+@media screen and (max-width: 480px){
 
   .level-title {
     width: 90%;
