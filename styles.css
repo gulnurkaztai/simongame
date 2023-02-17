@@ -8,7 +8,7 @@ body {
   box-sizing: border-box;
 }
 
-.level-title {
+.level {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin:  5%;
@@ -75,7 +75,7 @@ footer p {
   body {
     height: auto;
   }
-  .level-title {
+  .level{
     width: 92%;
     height: 15vh;
     font-size: 1.5rem;
@@ -100,7 +100,7 @@ footer p {
 
 @media (max-width: 480px){
 
-  .level-title {
+  .level {
     width: 90%;
     height: 20vh;
     font-size: 1rem;

@@ -1,5 +1,5 @@
 // Colors of the four buttons
-buttonColours = ["red", "blue", "green", "yellow"];
+btnColours = ["red", "blue", "green", "yellow"];
 
 // An array that stores the game pattern
 gamePattern = [];
@@ -15,7 +15,7 @@ let level = 0;
 
 $(document).keydown(function() {
   if (!started) {
-    $("#level-title").text(`Level ${level}`);
+    $(".level").text(`Level ${level}` );
     nextSequence();
     started = true;
   }
@@ -25,9 +25,9 @@ $(document).keydown(function() {
 function nextSequence() {
   userClickedPattern = [];
   level++;
-  $(".level-title").text(`Level ${level}`);
+  $(".level").text(`Level ${level}`);
   let randomNumber = Math.floor(Math.random() * 4);
-  let randomChosenColour = buttonColours[randomNumber];
+  let randomChosenColour = btnColours[randomNumber];
   gamePattern.push(randomChosenColour);
   $(`#${randomChosenColour}`).fadeIn(100).fadeOut(100).fadeIn(100);
   playSound(randomChosenColour);
@@ -54,7 +54,7 @@ function checkAnswer(currentLevel) {
     } else {
       playSound("wrong");
       $("body").addClass("game-over");
-      $(".level-title").text("Game Over, Press Any Key to Restart");
+      $(".level").text("Game Over, Press Any Key to Restart");
       setTimeout(function () {
         $("body").removeClass("game-over");
       }, 200);
@@ -84,17 +84,21 @@ function startOver() {
   started = false;
 }
 
-function mobile(e){
-  e.target.value = e.target.value.replace(/[^\d]/g,'');
-  return false;
-}
+function mobile() {
+  if (!started) {
+    $(".level").text(`Level ${level}` );
+    nextSequence();
+    started = true;
+  }
+};
 
 
 	// Touch?
+//   if(window.matchMedia("(pointer: coarse)").matches) {
+//     // touchscreen
+// }
   if (browser.mobile) {
 
-    // Turn on touch mode.
-      $body.addClass('is-touch');
       mobile();
 
     // Height fix (mostly for iOS).
