@@ -124,8 +124,8 @@ footer p {
     margin: 4%;
     display: inline-block;
     --size: 100vmin;
-    width: calc(var(--size) / 6);
-    height: calc(var(--size) / 6);
+    width: calc(var(--size) / 4);
+    height: calc(var(--size) / 4);
     border: 5px solid white;
     border-radius: 20%;
 
