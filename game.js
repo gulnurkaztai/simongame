@@ -85,16 +85,32 @@ function startOver() {
 }
 
 function mobile() {
-    started = true;
+  if (!started) {
     $(".level").text(`Level ${level}` );
     nextSequence();
+    started = true;
+  }
 };
 
 
 	// Touch?
   if(window.matchMedia("(pointer: coarse)").matches) {
-    // if mobile, start right away
-      mobile();
+    // if touchscreen, start after 3 second
+    let counter = 3;
+    let interval = setInterval(function() {
+    $(".level").text(`The game will start in ${counter} seconds`);
+    counter--;
+
+    if (counter == 0) {
+        clearInterval(interval);
+    }
+
+}, 1000);
+
+      setTimeout(() => {
+
+        mobile();
+      }, 3000);
 
     // Height fix (mostly for iOS).
       window.setTimeout(function() {

@@ -114,9 +114,7 @@ footer p {
     margin:  0.5em auto;
     color: white;
     line-height: 1;
-
   }
-
   footer p {
     margin: 0;
   }
@@ -133,7 +131,7 @@ footer p {
   .container {
     display: block;
     width: 100%;
-    margin: auto;
+    margin: 0;
   
   }
 }
