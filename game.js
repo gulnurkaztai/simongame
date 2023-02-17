@@ -92,16 +92,17 @@ function mobile() {
 
 
 	// Touch?
-//   if(window.matchMedia("(pointer: coarse)").matches) {
-//     // touchscreen
-// }
-  if (browser.mobile) {
-
-      mobile();
+  if(window.matchMedia("(pointer: coarse)").matches) {
+    // touchscreen
+          mobile();
 
     // Height fix (mostly for iOS).
       window.setTimeout(function() {
         $window.scrollTop($window.scrollTop() + 1);
       }, 0);
+}
 
-  }
+
+
+
+
