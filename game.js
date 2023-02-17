@@ -85,11 +85,9 @@ function startOver() {
 }
 
 function mobile() {
-  if (!started) {
+    started = true;
     $(".level").text(`Level ${level}` );
     nextSequence();
-    started = true;
-  }
 };
 
 
