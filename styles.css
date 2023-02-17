@@ -126,7 +126,7 @@ footer p {
     --size: 100vmin;
     width: calc(var(--size) / 4);
     height: calc(var(--size) / 4);
-    border: 5px solid white;
+    border: 1px solid white;
     border-radius: 20%;
 
   }
