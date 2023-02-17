@@ -84,8 +84,21 @@ function startOver() {
   started = false;
 }
 
+function mobile() {
+    started = true;
+    $(".level").text(`Level ${level}` );
+    nextSequence();
+};
 
 
+	// Touch?
+  if(window.matchMedia("(pointer: coarse)").matches) {
+    // if mobile, start right away
+      mobile();
 
+    // Height fix (mostly for iOS).
+      window.setTimeout(function() {
+        $window.scrollTop($window.scrollTop() + 1);
+      }, 0);
 
-
+  }
