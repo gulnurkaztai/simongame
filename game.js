@@ -13,14 +13,6 @@ let started = false;
 // Current game level
 let level = 0;
 
-// $(document).keydown(function() {
-//   if (!started) {
-//     $(".level").text(`Level ${level}` );
-//     nextSequence();
-//     started = true;
-//   }
-// });
-
 // A function that randomly picks a color
 function nextSequence() {
   userClickedPattern = [];
@@ -54,14 +46,13 @@ function checkAnswer(currentLevel) {
     } else {
       playSound("wrong");
       $("body").addClass("game-over");
-      $(".level").text("Game Over, Press Any Key to Restart");
+      $(".level").text("Game Over, Press Restart");
       setTimeout(function () {
         $("body").removeClass("game-over");
       }, 200);
-      startOver();
+      enableRestart();
     }
 }
-
 
 // A function that animates the buttion
 function animatePress(currentColor) {
@@ -102,54 +93,17 @@ $(document).on("click touchstart", function() {
 // Initialize the game state
 $(document).ready(function() {
   $(".level").text("Tap Anywhere to Start");
+  $(".restart-btn").hide();
 });
 
-// Add a restart button
-const restartButton = $("<button>")
-  .text("Restart")
-  .addClass("restart-btn")
-  .click(function() {
-    startOver();
-    startGame();
-  });
+// Enable the restart button when game over
+function enableRestart() {
+  $(".restart-btn").show();
+}
 
-$("body").append(restartButton);
-
-
-// function mobile() {
-//   console.log("1")
-//   if (!started) {
-//     $(".level").text(`Level ${level}` );
-//     nextSequence();
-//     console.log("2")
-//     started = true;
-//   }
-// };
-
-
-// 	// Touch?
-// if(window.matchMedia("(pointer: coarse)").matches) {
-//     // if touchscreen, start after 3 second
-//     let counter = 3;
-//     $(".level").text("")
-//     let interval = setInterval(function() {
-//     $(".level").text(`The game will start in ${counter} seconds`);
-//     counter--;
-
-//     if (counter == 0) {
-//         clearInterval(interval);
-//     }
-
-// }, 1000);
-
-//       setTimeout(() => {
-
-//         mobile();
-//       }, 3000);
-
-//     // Height fix (mostly for iOS).
-//       window.setTimeout(function() {
-//         $window.scrollTop($window.scrollTop() + 1);
-//       }, 0);
-
-//   }
+// Handle the restart button click
+$(".restart-btn").click(function() {
+  startOver();
+  startGame();
+  $(".restart-btn").hide();
+});
