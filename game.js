@@ -13,13 +13,13 @@ let started = false;
 // Current game level
 let level = 0;
 
-$(document).keydown(function() {
-  if (!started) {
-    $(".level").text(`Level ${level}` );
-    nextSequence();
-    started = true;
-  }
-});
+// $(document).keydown(function() {
+//   if (!started) {
+//     $(".level").text(`Level ${level}` );
+//     nextSequence();
+//     started = true;
+//   }
+// });
 
 // A function that randomly picks a color
 function nextSequence() {
@@ -74,6 +74,7 @@ function animatePress(currentColor) {
 // A function that plays the button sounds
 function playSound(colour) {
   let beat = new Audio(`sounds/${colour}.mp3`);
+  console.log(beat)
   beat.play();
 }
 
@@ -84,37 +85,71 @@ function startOver() {
   started = false;
 }
 
-function mobile() {
+// Function to start the game on touch/click
+function startGame() {
   if (!started) {
-    $(".level").text(`Level ${level}` );
+    $(".level").text(`Level ${level}`);
     nextSequence();
     started = true;
   }
-};
+}
+
+// Detect touch/click anywhere on the screen to start the game
+$(document).on("click touchstart", function() {
+  startGame();
+});
+
+// Initialize the game state
+$(document).ready(function() {
+  $(".level").text("Tap Anywhere to Start");
+});
+
+// Add a restart button
+const restartButton = $("<button>")
+  .text("Restart")
+  .addClass("restart-btn")
+  .click(function() {
+    startOver();
+    startGame();
+  });
+
+$("body").append(restartButton);
 
 
-	// Touch?
-  if(window.matchMedia("(pointer: coarse)").matches) {
-    // if touchscreen, start after 3 second
-    let counter = 3;
-    let interval = setInterval(function() {
-    $(".level").text(`The game will start in ${counter} seconds`);
-    counter--;
+// function mobile() {
+//   console.log("1")
+//   if (!started) {
+//     $(".level").text(`Level ${level}` );
+//     nextSequence();
+//     console.log("2")
+//     started = true;
+//   }
+// };
 
-    if (counter == 0) {
-        clearInterval(interval);
-    }
 
-}, 1000);
+// 	// Touch?
+// if(window.matchMedia("(pointer: coarse)").matches) {
+//     // if touchscreen, start after 3 second
+//     let counter = 3;
+//     $(".level").text("")
+//     let interval = setInterval(function() {
+//     $(".level").text(`The game will start in ${counter} seconds`);
+//     counter--;
 
-      setTimeout(() => {
+//     if (counter == 0) {
+//         clearInterval(interval);
+//     }
 
-        mobile();
-      }, 3000);
+// }, 1000);
 
-    // Height fix (mostly for iOS).
-      window.setTimeout(function() {
-        $window.scrollTop($window.scrollTop() + 1);
-      }, 0);
+//       setTimeout(() => {
 
-  }
+//         mobile();
+//       }, 3000);
+
+//     // Height fix (mostly for iOS).
+//       window.setTimeout(function() {
+//         $window.scrollTop($window.scrollTop() + 1);
+//       }, 0);
+
+//   }
